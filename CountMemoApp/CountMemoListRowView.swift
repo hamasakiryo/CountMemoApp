@@ -39,5 +39,5 @@ struct CountMemoListRowView: View {
 }
 
 #Preview {
-    CountMemoListRow()
+    CountMemoListRowView()
 }
