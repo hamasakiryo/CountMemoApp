@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FEB910442B0B44AE004429E3 /* CountMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910432B0B44AE004429E3 /* CountMemoAppApp.swift */; };
+		FEB910462B0B44AE004429E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910452B0B44AE004429E3 /* ContentView.swift */; };
+		FEB910482B0B44AF004429E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB910472B0B44AF004429E3 /* Assets.xcassets */; };
+		FEB9104B2B0B44AF004429E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB9104A2B0B44AF004429E3 /* Preview Assets.xcassets */; };
+		FEB910552B0B44AF004429E3 /* CountMemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910542B0B44AF004429E3 /* CountMemoAppTests.swift */; };
+		FEB9105F2B0B44AF004429E3 /* CountMemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB9105E2B0B44AF004429E3 /* CountMemoAppUITests.swift */; };
+		FEB910612B0B44AF004429E3 /* CountMemoAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910602B0B44AF004429E3 /* CountMemoAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FEB910512B0B44AF004429E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEB910382B0B44AE004429E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEB9103F2B0B44AE004429E3;
+			remoteInfo = CountMemoApp;
+		};
+		FEB9105B2B0B44AF004429E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEB910382B0B44AE004429E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FEB9103F2B0B44AE004429E3;
+			remoteInfo = CountMemoApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FEB910402B0B44AE004429E3 /* CountMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB910432B0B44AE004429E3 /* CountMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMemoAppApp.swift; sourceTree = "<group>"; };
+		FEB910452B0B44AE004429E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FEB910472B0B44AF004429E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FEB9104A2B0B44AF004429E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FEB910502B0B44AF004429E3 /* CountMemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountMemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB910542B0B44AF004429E3 /* CountMemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMemoAppTests.swift; sourceTree = "<group>"; };
+		FEB9105A2B0B44AF004429E3 /* CountMemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountMemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEB9105E2B0B44AF004429E3 /* CountMemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMemoAppUITests.swift; sourceTree = "<group>"; };
+		FEB910602B0B44AF004429E3 /* CountMemoAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMemoAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FEB9103D2B0B44AE004429E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB9104D2B0B44AF004429E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB910572B0B44AF004429E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FEB910372B0B44AE004429E3 = {
+			isa = PBXGroup;
+			children = (
+				FEB910422B0B44AE004429E3 /* CountMemoApp */,
+				FEB910532B0B44AF004429E3 /* CountMemoAppTests */,
+				FEB9105D2B0B44AF004429E3 /* CountMemoAppUITests */,
+				FEB910412B0B44AE004429E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FEB910412B0B44AE004429E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEB910402B0B44AE004429E3 /* CountMemoApp.app */,
+				FEB910502B0B44AF004429E3 /* CountMemoAppTests.xctest */,
+				FEB9105A2B0B44AF004429E3 /* CountMemoAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEB910422B0B44AE004429E3 /* CountMemoApp */ = {
+			isa = PBXGroup;
+			children = (
+				FEB910432B0B44AE004429E3 /* CountMemoAppApp.swift */,
+				FEB910452B0B44AE004429E3 /* ContentView.swift */,
+				FEB910472B0B44AF004429E3 /* Assets.xcassets */,
+				FEB910492B0B44AF004429E3 /* Preview Content */,
+			);
+			path = CountMemoApp;
+			sourceTree = "<group>";
+		};
+		FEB910492B0B44AF004429E3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9104A2B0B44AF004429E3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FEB910532B0B44AF004429E3 /* CountMemoAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FEB910542B0B44AF004429E3 /* CountMemoAppTests.swift */,
+			);
+			path = CountMemoAppTests;
+			sourceTree = "<group>";
+		};
+		FEB9105D2B0B44AF004429E3 /* CountMemoAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FEB9105E2B0B44AF004429E3 /* CountMemoAppUITests.swift */,
+				FEB910602B0B44AF004429E3 /* CountMemoAppUITestsLaunchTests.swift */,
+			);
+			path = CountMemoAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FEB9103F2B0B44AE004429E3 /* CountMemoApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEB910642B0B44AF004429E3 /* Build configuration list for PBXNativeTarget "CountMemoApp" */;
+			buildPhases = (
+				FEB9103C2B0B44AE004429E3 /* Sources */,
+				FEB9103D2B0B44AE004429E3 /* Frameworks */,
+				FEB9103E2B0B44AE004429E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CountMemoApp;
+			productName = CountMemoApp;
+			productReference = FEB910402B0B44AE004429E3 /* CountMemoApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FEB9104F2B0B44AF004429E3 /* CountMemoAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEB910672B0B44AF004429E3 /* Build configuration list for PBXNativeTarget "CountMemoAppTests" */;
+			buildPhases = (
+				FEB9104C2B0B44AF004429E3 /* Sources */,
+				FEB9104D2B0B44AF004429E3 /* Frameworks */,
+				FEB9104E2B0B44AF004429E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEB910522B0B44AF004429E3 /* PBXTargetDependency */,
+			);
+			name = CountMemoAppTests;
+			productName = CountMemoAppTests;
+			productReference = FEB910502B0B44AF004429E3 /* CountMemoAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FEB910592B0B44AF004429E3 /* CountMemoAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEB9106A2B0B44AF004429E3 /* Build configuration list for PBXNativeTarget "CountMemoAppUITests" */;
+			buildPhases = (
+				FEB910562B0B44AF004429E3 /* Sources */,
+				FEB910572B0B44AF004429E3 /* Frameworks */,
+				FEB910582B0B44AF004429E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FEB9105C2B0B44AF004429E3 /* PBXTargetDependency */,
+			);
+			name = CountMemoAppUITests;
+			productName = CountMemoAppUITests;
+			productReference = FEB9105A2B0B44AF004429E3 /* CountMemoAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FEB910382B0B44AE004429E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					FEB9103F2B0B44AE004429E3 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					FEB9104F2B0B44AF004429E3 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = FEB9103F2B0B44AE004429E3;
+					};
+					FEB910592B0B44AF004429E3 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = FEB9103F2B0B44AE004429E3;
+					};
+				};
+			};
+			buildConfigurationList = FEB9103B2B0B44AE004429E3 /* Build configuration list for PBXProject "CountMemoApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FEB910372B0B44AE004429E3;
+			productRefGroup = FEB910412B0B44AE004429E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FEB9103F2B0B44AE004429E3 /* CountMemoApp */,
+				FEB9104F2B0B44AF004429E3 /* CountMemoAppTests */,
+				FEB910592B0B44AF004429E3 /* CountMemoAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FEB9103E2B0B44AE004429E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB9104B2B0B44AF004429E3 /* Preview Assets.xcassets in Resources */,
+				FEB910482B0B44AF004429E3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB9104E2B0B44AF004429E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB910582B0B44AF004429E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FEB9103C2B0B44AE004429E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB910462B0B44AE004429E3 /* ContentView.swift in Sources */,
+				FEB910442B0B44AE004429E3 /* CountMemoAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB9104C2B0B44AF004429E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB910552B0B44AF004429E3 /* CountMemoAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FEB910562B0B44AF004429E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEB910612B0B44AF004429E3 /* CountMemoAppUITestsLaunchTests.swift in Sources */,
+				FEB9105F2B0B44AF004429E3 /* CountMemoAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FEB910522B0B44AF004429E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEB9103F2B0B44AE004429E3 /* CountMemoApp */;
+			targetProxy = FEB910512B0B44AF004429E3 /* PBXContainerItemProxy */;
+		};
+		FEB9105C2B0B44AF004429E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FEB9103F2B0B44AE004429E3 /* CountMemoApp */;
+			targetProxy = FEB9105B2B0B44AF004429E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FEB910622B0B44AF004429E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FEB910632B0B44AF004429E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FEB910652B0B44AF004429E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CountMemoApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamasaki.CountMemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FEB910662B0B44AF004429E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"CountMemoApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamasaki.CountMemoApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FEB910682B0B44AF004429E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamasaki.CountMemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountMemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CountMemoApp";
+			};
+			name = Debug;
+		};
+		FEB910692B0B44AF004429E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamasaki.CountMemoAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CountMemoApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CountMemoApp";
+			};
+			name = Release;
+		};
+		FEB9106B2B0B44AF004429E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamasaki.CountMemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CountMemoApp;
+			};
+			name = Debug;
+		};
+		FEB9106C2B0B44AF004429E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hamasaki.CountMemoAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CountMemoApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FEB9103B2B0B44AE004429E3 /* Build configuration list for PBXProject "CountMemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEB910622B0B44AF004429E3 /* Debug */,
+				FEB910632B0B44AF004429E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEB910642B0B44AF004429E3 /* Build configuration list for PBXNativeTarget "CountMemoApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEB910652B0B44AF004429E3 /* Debug */,
+				FEB910662B0B44AF004429E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEB910672B0B44AF004429E3 /* Build configuration list for PBXNativeTarget "CountMemoAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEB910682B0B44AF004429E3 /* Debug */,
+				FEB910692B0B44AF004429E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEB9106A2B0B44AF004429E3 /* Build configuration list for PBXNativeTarget "CountMemoAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FEB9106B2B0B44AF004429E3 /* Debug */,
+				FEB9106C2B0B44AF004429E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FEB910382B0B44AE004429E3 /* Project object */;
+}
