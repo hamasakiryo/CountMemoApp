@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CountMemoListRow: View {
+struct CountMemoListRowView: View {
     var body: some View {
         VStack {
             HStack{
