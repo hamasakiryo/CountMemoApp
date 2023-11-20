@@ -22,6 +22,13 @@ struct EditCountMemoView: View {
                 TextEditor(text: $MemoContentText)
                     .padding(.horizontal, 10.0)
             }
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("計:\(MemoContentText.count)")
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+            }
         }
     }
 }
