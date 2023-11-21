@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct EditCountMemoView: View {
-    @State var MemoTitleText: String
-    @State var MemoContentText: String
+    @State var memoTitleText: String
+    @State var memoContentText: String
     
     var body: some View {
         NavigationStack {
             VStack {
-                TextField("タイトルを入力", text: $MemoTitleText)
+                TextField("タイトルを入力", text: $memoTitleText)
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.leading, 10.0)
                 Divider()
-                TextEditor(text: $MemoContentText)
+                TextEditor(text: $memoContentText)
                     .padding(.horizontal, 10.0)
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("計:\(MemoContentText.count)")
+                    Text("計:\(memoContentText.count)")
                         .font(.title)
                         .fontWeight(.bold)
                 }
@@ -34,5 +34,5 @@ struct EditCountMemoView: View {
 }
 
 #Preview {
-    EditCountMemoView(MemoTitleText: "タイトル1", MemoContentText: "内容1")
+    EditCountMemoView(memoTitleText: "タイトル1", memoContentText: "内容1")
 }
