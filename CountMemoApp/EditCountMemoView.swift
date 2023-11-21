@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct EditCountMemoView: View {
+    @State var memo: CountMemo
     @State var memoTitleText: String
     @State var memoContentText: String
     
+    init(memo: CountMemo) {
+        _memo = State(initialValue: memo)
+        _memoTitleText = State(initialValue: memo.title)
+        _memoContentText = State(initialValue: memo.content)
+    }
     var body: some View {
         NavigationStack {
             VStack {
@@ -34,5 +40,5 @@ struct EditCountMemoView: View {
 }
 
 #Preview {
-    EditCountMemoView(memoTitleText: "タイトル1", memoContentText: "内容1")
+    EditCountMemoView(memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000))
 }
