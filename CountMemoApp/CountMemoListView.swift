@@ -16,8 +16,10 @@ struct CountMemoListView: View {
     var body: some View {
         NavigationStack {
             List(memos) { memo in
-                CountMemoListRowView(memo: memo)
-                    .foregroundStyle(Color.primary)
+                NavigationLink(destination: EditCountMemoView(memo: memo)) {
+                    CountMemoListRowView(memo: memo)
+                        .foregroundStyle(Color.primary)
+                }
             }
         }
     }
