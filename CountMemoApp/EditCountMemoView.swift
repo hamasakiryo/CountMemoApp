@@ -9,13 +9,13 @@ import SwiftUI
 
 struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
-    @Binding var memos: [CountMemo]
+    @ObservedObject var memoData: CountMemoData
     @State var memo: CountMemo
     @State var memoTitleText: String
     @State var memoContentText: String
     
-    init(memos: Binding<[CountMemo]>,memo: CountMemo) {
-        _memos = memos
+    init(memoData: CountMemoData,memo: CountMemo) {
+        _memoData = ObservedObject(wrappedValue: memoData)
         _memo = State(initialValue: memo)
         _memoTitleText = State(initialValue: memo.title)
         _memoContentText = State(initialValue: memo.content)
@@ -49,5 +49,5 @@ struct EditCountMemoView: View {
 }
 
 #Preview {
-    EditCountMemoView(memos: .constant([CountMemo]()), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000))
+    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000))
 }

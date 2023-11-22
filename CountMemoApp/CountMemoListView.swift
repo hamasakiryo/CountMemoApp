@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct CountMemoListView: View {
-    @State var memos: [CountMemo] = [
-        CountMemo(title: "タイトル1", content: "内容1", date: "2023\n11/21", characterCount: 1000),
-        CountMemo(title: "タイトル2", content: "内容2", date: "2023\n11/22", characterCount: 2000)
-    ]
+    @ObservedObject var memoData: CountMemoData
     
     var body: some View {
         NavigationStack {
-            List(memos) { memo in
-                NavigationLink(destination: EditCountMemoView(memo: memo)) {
+            List(memoData.memos) { memo in
+                NavigationLink(destination: EditCountMemoView(memoData:  memoData, memo: memo)) {
                     CountMemoListRowView(memo: memo)
-                        .foregroundStyle(Color.primary)
                 }
             }
         }
@@ -27,5 +23,5 @@ struct CountMemoListView: View {
 
 
 #Preview {
-    CountMemoListView()
+    CountMemoListView(memoData: CountMemoData())
 }
