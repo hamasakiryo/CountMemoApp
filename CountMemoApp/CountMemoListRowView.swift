@@ -17,19 +17,17 @@ struct CountMemoListRowView: View {
                     .lineLimit(1)
                     .font(.title2)
                     .fontWeight(.bold)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             HStack {
                 Text(memo.date)
                     .padding(.trailing, 10.0)
-                Spacer()
                 HStack{
                     Text(memo.content)
                         .lineLimit(2)
                         .foregroundStyle(.gray)
-                    Spacer()
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                Spacer()
                 RoundedRectangle(cornerRadius: 20)
                     .foregroundStyle(.orisinal)
                     .frame(width: 70, height: 30)
