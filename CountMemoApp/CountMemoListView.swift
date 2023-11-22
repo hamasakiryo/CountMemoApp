@@ -16,6 +16,7 @@ struct CountMemoListView: View {
                     CountMemoListRowView(memo: $memo)
                 }
             }
+            .navigationTitle("リスト")
         }
     }
 }
