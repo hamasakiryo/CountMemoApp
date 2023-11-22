@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditCountMemoView: View {
+    @Environment (\.dismiss) private var dismiss
     @State var memo: CountMemo
     @State var memoTitleText: String
     @State var memoContentText: String
@@ -28,11 +29,17 @@ struct EditCountMemoView: View {
                 TextEditor(text: $memoContentText)
                     .padding(.horizontal, 10.0)
             }
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("計:\(memoContentText.count)")
                         .font(.title)
                         .fontWeight(.bold)
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("<リスト") {
+                        dismiss()
+                    }
                 }
             }
         }
