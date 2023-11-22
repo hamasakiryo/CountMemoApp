@@ -17,6 +17,15 @@ struct CountMemoListView: View {
                 }
             }
             .navigationTitle("リスト")
+            .toolbar{
+                ToolbarItem(placement: .bottomBar) {
+                    NavigationLink(destination: AddNewCountMemoView()) {
+                            Image(systemName: "square.and.pencil")
+                    }
+                    .foregroundStyle(.primary)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+            }
         }
     }
 }
