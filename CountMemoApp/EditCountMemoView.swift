@@ -40,14 +40,17 @@ struct EditCountMemoView: View {
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     Button("<リスト") {
-                        if let index = memoData.memos.firstIndex(where: { $0.id == memo.id }) {
-                            memoData.memos[index].title = memoTitleText
-                            memoData.memos[index].content = memoContentText
-                        }
+                        saveMemo()
                         dismiss()
                     }
                 }
             }
+        }
+    }
+    func saveMemo() {
+        if let index = memoData.memos.firstIndex(where: { $0.id == memo.id }) {
+            memoData.memos[index].title = memoTitleText
+            memoData.memos[index].content = memoContentText
         }
     }
 }
