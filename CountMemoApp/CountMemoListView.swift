@@ -19,7 +19,7 @@ struct CountMemoListView: View {
             .navigationTitle("リスト")
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AddNewCountMemoView()) {
+                    NavigationLink(destination: AddNewCountMemoView(memoData: memoData)) {
                             Image(systemName: "square.and.pencil")
                     }
                     .foregroundStyle(.primary)

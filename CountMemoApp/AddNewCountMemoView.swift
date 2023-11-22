@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddNewCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
+    @ObservedObject var memoData: CountMemoData
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
     var body: some View {
@@ -31,14 +32,22 @@ struct AddNewCountMemoView: View {
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     Button("<リスト") {
+                        addNewMemo()
                         dismiss()
                     }
                 }
             }
         }
     }
+    func addNewMemo() {
+        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: newMemoContentText.count)
+        
+        memoData.memos.insert(newMemo, at: 0)
+        newMemoTitleText = ""
+        newMemoContentText = ""
+    }
 }
 
 #Preview {
-    AddNewCountMemoView()
+    AddNewCountMemoView(memoData: CountMemoData())
 }
