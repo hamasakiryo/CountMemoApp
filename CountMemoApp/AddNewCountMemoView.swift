@@ -8,8 +8,34 @@
 import SwiftUI
 
 struct AddNewCountMemoView: View {
+    @Environment (\.dismiss) private var dismiss
+    @State var newMemoTitleText = ""
+    @State var newMemoContentText = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                TextField("タイトルを入力", text: $newMemoTitleText)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.leading, 10.0)
+                Divider()
+                TextEditor(text: $newMemoContentText)
+                    .padding(.horizontal, 10.0)
+            }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("計:\(newMemoContentText.count)")
+                        .font(.title)
+                        .fontWeight(.bold)
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("<リスト") {
+                        dismiss()
+                    }
+                }
+            }
+        }
     }
 }
 
