@@ -12,6 +12,7 @@ struct AddNewCountMemoView: View {
     @ObservedObject var memoData: CountMemoData
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
+    
     var body: some View {
         NavigationStack {
             VStack {

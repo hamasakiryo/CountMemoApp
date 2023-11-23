@@ -20,6 +20,7 @@ struct EditCountMemoView: View {
         _memoTitleText = State(initialValue: memo.title)
         _memoContentText = State(initialValue: memo.content)
     }
+    
     var body: some View {
         NavigationStack {
             VStack {
