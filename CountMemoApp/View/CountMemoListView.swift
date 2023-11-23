@@ -18,6 +18,11 @@ struct CountMemoListView: View {
                 }
             }
             .navigationTitle("リスト")
+            .onAppear{
+                if memoData.memos[0].title.isEmpty || memoData.memos[0].content.isEmpty {
+                    memoData.memos.remove(at: 0)
+                }
+            }
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: AddNewCountMemoView(memoData: memoData)) {
