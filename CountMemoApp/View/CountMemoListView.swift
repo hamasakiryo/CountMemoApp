@@ -24,6 +24,7 @@ struct CountMemoListView: View {
                             Image(systemName: "square.and.pencil")
                     }
                     .foregroundStyle(.primary)
+                    .font(.title)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
