@@ -5,7 +5,7 @@
 //  Created by 浜崎良 on 2023/11/20.
 //
 
-import SwiftUI
+import Foundation
 
 struct CountMemo: Identifiable {
     var id = UUID()
