@@ -31,6 +31,14 @@ struct AddNewCountMemoView: View {
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("<リスト") {
+                        addNewMemo()
+                        dismiss()
+                    }
+                }
+                
                 ToolbarItem(placement: .principal) {
                     Text("計:\(newMemoContentText.count)")
                         .font(.title)
@@ -44,12 +52,6 @@ struct AddNewCountMemoView: View {
                         Image(systemName: "gearshape.fill")
                             .foregroundStyle(Color.primary)
                             .font(.title)
-                    }
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("<リスト") {
-                        addNewMemo()
-                        dismiss()
                     }
                 }
             }

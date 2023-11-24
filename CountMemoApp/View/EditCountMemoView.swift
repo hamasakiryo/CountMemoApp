@@ -39,11 +39,20 @@ struct EditCountMemoView: View {
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("<リスト") {
+                        saveMemo()
+                        dismiss()
+                    }
+                }
+                
                 ToolbarItem(placement: .principal) {
                     Text("計:\(memoContentText.count)")
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
                         isShowCountSettingView = true
@@ -51,12 +60,6 @@ struct EditCountMemoView: View {
                         Image(systemName: "gearshape.fill")
                             .foregroundStyle(Color.primary)
                             .font(.title)
-                    }
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("<リスト") {
-                        saveMemo()
-                        dismiss()
                     }
                 }
             }
