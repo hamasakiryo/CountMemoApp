@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct CountSettingView: View {
+    @State var includeSpace = false
+    @State var includeNewLine = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            List {
+                VStack{
+                    Toggle("空白をカウントする", isOn: $includeSpace)
+                    Toggle("改行をカウントする", isOn: $includeNewLine)
+                }
+            }
+        }
     }
 }
 
