@@ -13,6 +13,7 @@ struct EditCountMemoView: View {
     @State var memo: CountMemo
     @State var memoTitleText: String
     @State var memoContentText: String
+    @State var isShowCountSettingView = false
     
     init(memoData: CountMemoData,memo: CountMemo) {
         _memoData = ObservedObject(wrappedValue: memoData)
@@ -32,12 +33,25 @@ struct EditCountMemoView: View {
                 TextEditor(text: $memoContentText)
                     .padding(.horizontal, 10.0)
             }
+            .sheet(isPresented: $isShowCountSettingView) {
+                CountSettingView()
+                    .presentationDetents([.medium])
+            }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("計:\(memoContentText.count)")
                         .font(.title)
                         .fontWeight(.bold)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button{
+                        isShowCountSettingView = true
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(Color.primary)
+                            .font(.title)
+                    }
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     Button("<リスト") {

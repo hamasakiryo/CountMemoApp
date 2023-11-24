@@ -12,6 +12,7 @@ struct AddNewCountMemoView: View {
     @ObservedObject var memoData: CountMemoData
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
+    @State var isShowCountSettingView = false
     
     var body: some View {
         NavigationStack {
@@ -24,12 +25,26 @@ struct AddNewCountMemoView: View {
                 TextEditor(text: $newMemoContentText)
                     .padding(.horizontal, 10.0)
             }
+            .sheet(isPresented: $isShowCountSettingView) {
+                CountSettingView()
+                    .presentationDetents([.medium])
+            }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("計:\(newMemoContentText.count)")
                         .font(.title)
                         .fontWeight(.bold)
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button{
+                        isShowCountSettingView = true
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundStyle(Color.primary)
+                            .font(.title)
+                    }
                 }
                 ToolbarItem(placement: .topBarLeading) {
                     Button("<リスト") {
