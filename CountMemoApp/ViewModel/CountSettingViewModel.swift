@@ -17,12 +17,12 @@ class CountSettingViewModel: ObservableObject {
     func countCharacters(text: String) -> Int {
         var modifiedText = text
         
-        // includeSpaceがfalseの場合、テキストから空白を除外(デフォルトで文字数のカウントには空白が含まれない)
+        // includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)
         if !includeSpace {
             modifiedText = modifiedText.replacingOccurrences(of: " 　", with: "", options: .regularExpression)
         }
         
-        //includeNewLineがfalseの場合、テキストから改行を除外(デフォルトで文字数のカウントには改行が含まれない)
+        //includeNewLineがfalseの場合、テキストから改行を除去(デフォルトで文字数のカウントには改行が含まれない)
         if !includeNewLine {
             modifiedText = modifiedText.replacingOccurrences(of: "\n", with: "")
         }
