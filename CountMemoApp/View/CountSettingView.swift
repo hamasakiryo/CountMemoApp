@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct CountSettingView: View {
+    @Environment(\.dismiss) var dismiss
     @State var includeSpace = false
     @State var includeNewLine = false
-    
     var body: some View {
         NavigationStack {
             List {
-                VStack{
                     Toggle("空白をカウントする", isOn: $includeSpace)
                     Toggle("改行をカウントする", isOn: $includeNewLine)
+            }
+            .toolbar{
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("OK")
+                            .foregroundStyle(Color.primary)
+                    }
                 }
             }
         }
