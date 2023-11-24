@@ -17,6 +17,8 @@ struct CountSettingView: View {
                     Toggle("空白をカウントする", isOn: $includeSpace)
                     Toggle("改行をカウントする", isOn: $includeNewLine)
             }
+            .navigationTitle("カウント方式設定")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
