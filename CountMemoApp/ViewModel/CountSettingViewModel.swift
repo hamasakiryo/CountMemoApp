@@ -12,7 +12,8 @@ class CountSettingViewModel: ObservableObject {
     @Published var includeSpace = false
     //改行を含めるかどうかを切り替えるフラグ
     @Published var includeNewLine = false
-    
+    //'//'で囲った文字を含めるかどうかを切り替えるフラグ
+    @Published var removeEnclosedText = false
     // 修正されたテキストの文字数をカウントする関数
     func countCharacters(text: String) -> Int {
         var modifiedText = text
@@ -25,6 +26,11 @@ class CountSettingViewModel: ObservableObject {
         //includeNewLineがfalseの場合、テキストから改行を除去(デフォルトで文字数のカウントには改行が含まれない)
         if !includeNewLine {
             modifiedText = modifiedText.replacingOccurrences(of: "\n", with: "")
+        }
+        
+        //removeEnclosedTextがtrueの場合、テキストから'//'で囲まれた文字を除去(例: //文字// とすると「文字」が除去される)
+        if removeEnclosedText {
+            modifiedText = modifiedText.replacingOccurrences(of: "//(.*?)//", with: "")
         }
         
         return modifiedText.count

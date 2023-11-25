@@ -11,11 +11,14 @@ struct CountSettingView: View {
     @Environment(\.dismiss) var dismiss
     @State var includeSpace = false
     @State var includeNewLine = false
+    @State var removeEnclosedText = false
+    
     var body: some View {
         NavigationStack {
             List {
                     Toggle("空白をカウントする", isOn: $includeSpace)
                     Toggle("改行をカウントする", isOn: $includeNewLine)
+                Toggle("'//'で囲った文字をカウントしない", isOn: $removeEnclosedText)
             }
             .navigationTitle("カウント方式設定")
             .navigationBarTitleDisplayMode(.inline)
