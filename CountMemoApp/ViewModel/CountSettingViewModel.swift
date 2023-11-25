@@ -18,7 +18,7 @@ class CountSettingViewModel: ObservableObject {
     @Published var removeEnclosedText = false
     
     // 修正されたテキストの文字数をカウントする関数
-    func countCharacters(text: String) -> Int {
+    func modifiedTextCharacterCount(text: String) -> Int {
         var modifiedText = text
         
         // includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)
