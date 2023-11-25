@@ -34,7 +34,7 @@ struct EditCountMemoView: View {
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView()
+                CountSettingView(countSettingVM: CountSettingViewModel())
                     .presentationDetents([.medium])
             }
             .navigationBarBackButtonHidden(true)

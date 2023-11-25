@@ -10,10 +10,13 @@ import SwiftUI
 class CountSettingViewModel: ObservableObject {
     // 文字数を数える際に空白を含めるかどうかを切り替えるためのフラグ
     @Published var includeSpace = false
+    
     //改行を含めるかどうかを切り替えるフラグ
     @Published var includeNewLine = false
+    
     //'//'で囲った文字を含めるかどうかを切り替えるフラグ
     @Published var removeEnclosedText = false
+    
     // 修正されたテキストの文字数をカウントする関数
     func countCharacters(text: String) -> Int {
         var modifiedText = text
