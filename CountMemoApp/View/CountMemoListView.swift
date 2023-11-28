@@ -12,9 +12,9 @@ struct CountMemoListView: View {
     
     var body: some View {
         NavigationStack {
-            List($memoData.memos) { $memo in
+            List(memoData.memos) { memo in
                 NavigationLink(destination: EditCountMemoView(memoData:  memoData, memo: memo)) {
-                    CountMemoListRowView(memo: $memo)
+                    CountMemoListRowView(memo: memo)
                 }
             }
             .navigationTitle("リスト")

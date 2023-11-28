@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CountMemoListRowView: View {
-    @Binding var memo: CountMemo
+    var memo: CountMemo
     
     var body: some View {
         VStack {
@@ -38,5 +38,5 @@ struct CountMemoListRowView: View {
 }
 
 #Preview {
-    CountMemoListRowView(memo: .constant(CountMemo(title: "タイトル", content: "内容", date: "2023\n11/22", characterCount: 1000)))
+    CountMemoListRowView(memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/22", characterCount: 1000))
 }
