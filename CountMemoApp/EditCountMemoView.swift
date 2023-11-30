@@ -9,15 +9,15 @@ import SwiftUI
 
 struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
+    var memo: CountMemo
     @ObservedObject var memoData: CountMemoData
-    @State var memo: CountMemo
     @State var memoTitleText: String
     @State var memoContentText: String
     @State var isShowCountSettingView = false
     
     init(memoData: CountMemoData,memo: CountMemo) {
+        self.memo = memo
         _memoData = ObservedObject(wrappedValue: memoData)
-        _memo = State(initialValue: memo)
         _memoTitleText = State(initialValue: memo.title)
         _memoContentText = State(initialValue: memo.content)
     }
