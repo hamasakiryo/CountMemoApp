@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class CountSettingViewModel: ObservableObject {
+class CountSetting: ObservableObject {
     // 文字数を数える際に空白を含めるかどうかを切り替えるためのフラグ
     @Published var includeSpace = false
     

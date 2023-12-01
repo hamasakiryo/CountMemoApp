@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CountSettingView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var countSettingVM: CountSettingViewModel
+    @ObservedObject var counrSetting: CountSetting
+    
     var body: some View {
         NavigationStack {
             List {
-                Toggle("空白をカウントする", isOn: $countSettingVM.includeSpace)
-                Toggle("改行をカウントする", isOn: $countSettingVM.includeNewLine)
-                Toggle("'//'で囲った文字をカウントしない", isOn: $countSettingVM.removeEnclosedText)
+                Toggle("空白をカウントする", isOn: $counrSetting.includeSpace)
+                Toggle("改行をカウントする", isOn: $counrSetting.includeNewLine)
+                Toggle("'//'で囲った文字をカウントしない", isOn: $counrSetting.removeEnclosedText)
             }
             .navigationTitle("カウント方式設定")
             .navigationBarTitleDisplayMode(.inline)
@@ -34,5 +35,5 @@ struct CountSettingView: View {
 }
 
 #Preview {
-    CountSettingView(countSettingVM: CountSettingViewModel())
+    CountSettingView(counrSetting: CountSetting())
 }
