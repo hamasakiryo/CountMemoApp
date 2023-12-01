@@ -23,9 +23,8 @@ class CountSetting: ObservableObject {
         
         // includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)
         if !includeSpace {
-            modifiedText = modifiedText.replacingOccurrences(of: " 　", with: "", options: .regularExpression)
+            modifiedText = modifiedText.replacingOccurrences(of: "[ 　]", with: "", options: .regularExpression)
         }
-        
         //includeNewLineがfalseの場合、テキストから改行を除去(デフォルトで文字数のカウントには改行が含まれない)
         if !includeNewLine {
             modifiedText = modifiedText.replacingOccurrences(of: "\n", with: "")
@@ -33,7 +32,7 @@ class CountSetting: ObservableObject {
         
         //removeEnclosedTextがtrueの場合、テキストから'//'で囲まれた文字を除去(例: //文字// とすると「文字」が除去される)
         if removeEnclosedText {
-            modifiedText = modifiedText.replacingOccurrences(of: "//(.*?)//", with: "")
+            modifiedText = modifiedText.replacingOccurrences(of: "//(.*?)//", with: "", options: .regularExpression)
         }
         
         return modifiedText.count
