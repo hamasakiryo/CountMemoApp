@@ -13,7 +13,7 @@ struct CountMemoListView: View {
     var body: some View {
         NavigationStack {
             List(memoData.memos) { memo in
-                NavigationLink(destination: EditCountMemoView(memoData:  memoData, memo: memo)) {
+                NavigationLink(destination: EditCountMemoView(memoData: memoData, memo: memo)) {
                     CountMemoListRowView(memo: memo)
                 }
             }
@@ -29,7 +29,7 @@ struct CountMemoListView: View {
             }
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AddNewCountMemoView(memoData: memoData)) {
+                    NavigationLink(destination: AddNewCountMemoView(memoData: memoData, countSetting: CountSetting())) {
                             Image(systemName: "square.and.pencil")
                     }
                     .foregroundStyle(.primary)

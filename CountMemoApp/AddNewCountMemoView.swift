@@ -10,6 +10,7 @@ import SwiftUI
 struct AddNewCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     @ObservedObject var memoData: CountMemoData
+    @ObservedObject var countSetting: CountSetting
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
     @State var isShowCountSettingView = false
@@ -26,7 +27,7 @@ struct AddNewCountMemoView: View {
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(counrSetting: CountSetting())
+                CountSettingView(counrSetting: countSetting)
                     .presentationDetents([.medium])
             }
             .navigationBarBackButtonHidden(true)
@@ -40,7 +41,7 @@ struct AddNewCountMemoView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    Text("計:\(newMemoContentText.count)")
+                    Text("計:\(countSetting.modifiedTextCharacterCount(text: newMemoContentText))")
                         .font(.title)
                         .fontWeight(.bold)
                 }
@@ -58,7 +59,7 @@ struct AddNewCountMemoView: View {
         }
     }
     func addNewMemo() {
-        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: newMemoContentText.count)
+        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: countSetting.modifiedTextCharacterCount(text: newMemoContentText))
         
         memoData.memos.insert(newMemo, at: 0)
         newMemoTitleText = ""
@@ -67,5 +68,5 @@ struct AddNewCountMemoView: View {
 }
 
 #Preview {
-    AddNewCountMemoView(memoData: CountMemoData())
+    AddNewCountMemoView(memoData: CountMemoData(), countSetting: CountSetting())
 }
