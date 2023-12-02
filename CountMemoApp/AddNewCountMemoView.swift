@@ -13,46 +13,14 @@ struct AddNewCountMemoView: View {
     @ObservedObject var countSetting: CountSetting
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
-    @State var isShowCountSettingView = false
     
     var body: some View {
         NavigationStack {
-            VStack {
-                TextField("タイトルを入力", text: $newMemoTitleText)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, 10.0)
-                Divider()
-                TextEditor(text: $newMemoContentText)
-                    .padding(.horizontal, 10.0)
-            }
-            .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(counrSetting: countSetting)
-                    .presentationDetents([.medium])
-            }
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("<リスト") {
-                        addNewMemo()
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    Text("計:\(countSetting.modifiedTextCharacterCount(text: newMemoContentText))")
-                        .font(.title)
-                        .fontWeight(.bold)
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button{
-                        isShowCountSettingView = true
-                    } label: {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundStyle(Color.primary)
-                            .font(.title)
+            CounrMemoInputView(memoTitleText: newMemoTitleText, memoContentText: newMemoContentText)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("<リスト") {
+                            dismiss()
                     }
                 }
             }

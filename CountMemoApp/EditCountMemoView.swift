@@ -14,7 +14,6 @@ struct EditCountMemoView: View {
     @ObservedObject var countSetting: CountSetting
     @State var memoTitleText: String
     @State var memoContentText: String
-    @State var isShowCountSettingView = false
     
     init(memoData: CountMemoData,memo: CountMemo, countSetting: CountSetting) {
         self.memo = memo
@@ -26,42 +25,11 @@ struct EditCountMemoView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                TextField("タイトルを入力", text: $memoTitleText)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.leading, 10.0)
-                Divider()
-                TextEditor(text: $memoContentText)
-                    .padding(.horizontal, 10.0)
-            }
-            .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(counrSetting: countSetting)
-                    .presentationDetents([.medium])
-            }
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("<リスト") {
-                        saveMemo()
-                        dismiss()
-                    }
-                }
-                
-                ToolbarItem(placement: .principal) {
-                    Text("計:\(countSetting.modifiedTextCharacterCount(text: memoContentText))")
-                        .font(.title)
-                        .fontWeight(.bold)
-                }
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button{
-                        isShowCountSettingView = true
-                    } label: {
-                        Image(systemName: "gearshape.fill")
-                            .foregroundStyle(Color.primary)
-                            .font(.title)
+            CounrMemoInputView(memoTitleText: memoTitleText, memoContentText: memoContentText)
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("<リスト") {
+                            dismiss()
                     }
                 }
             }
