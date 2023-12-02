@@ -31,6 +31,7 @@ struct CounrMemoInputView: View {
             CountSettingView(counrSetting: countSetting)
                 .presentationDetents([.medium])
         }
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             
