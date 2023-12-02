@@ -11,12 +11,14 @@ struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     var memo: CountMemo
     @ObservedObject var memoData: CountMemoData
+    @ObservedObject var countSetting: CountSetting
     @State var memoTitleText: String
     @State var memoContentText: String
     @State var isShowCountSettingView = false
     
-    init(memoData: CountMemoData,memo: CountMemo) {
+    init(memoData: CountMemoData,memo: CountMemo, countSetting: CountSetting) {
         self.memo = memo
+        _countSetting = ObservedObject(initialValue: countSetting)
         _memoData = ObservedObject(wrappedValue: memoData)
         _memoTitleText = State(initialValue: memo.title)
         _memoContentText = State(initialValue: memo.content)
@@ -34,7 +36,7 @@ struct EditCountMemoView: View {
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(counrSetting: CountSetting())
+                CountSettingView(counrSetting: countSetting)
                     .presentationDetents([.medium])
             }
             .navigationBarBackButtonHidden(true)
@@ -48,7 +50,7 @@ struct EditCountMemoView: View {
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    Text("計:\(memoContentText.count)")
+                    Text("計:\(countSetting.modifiedTextCharacterCount(text: memoContentText))")
                         .font(.title)
                         .fontWeight(.bold)
                 }
@@ -74,5 +76,5 @@ struct EditCountMemoView: View {
 }
 
 #Preview {
-    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000))
+    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000), countSetting: CountSetting())
 }
