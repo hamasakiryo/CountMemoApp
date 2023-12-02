@@ -25,10 +25,11 @@ struct EditCountMemoView: View {
     
     var body: some View {
         NavigationStack {
-            CounrMemoInputView(memoTitleText: memoTitleText, memoContentText: memoContentText)
+            CounrMemoInputView(memoTitleText: $memoTitleText, memoContentText: $memoContentText)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("<リスト") {
+                            saveMemo()
                             dismiss()
                     }
                 }
@@ -39,6 +40,7 @@ struct EditCountMemoView: View {
         if let index = memoData.memos.firstIndex(where: { $0.id == memo.id }) {
             memoData.memos[index].title = memoTitleText
             memoData.memos[index].content = memoContentText
+            //memoData.memos[index].characterCount = countSetting.modifiedTextCharacterCount(text: memoContentText)
         }
     }
 }
