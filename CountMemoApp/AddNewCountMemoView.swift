@@ -20,19 +20,14 @@ struct AddNewCountMemoView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("<リスト") {
-                            addNewMemo()
+                            memoData.addNewMemo(newMemoTitleText: newMemoTitleText,
+                                                newMemoContentText: newMemoContentText,
+                                                characterCount: countSetting.modifiedTextCharacterCount(text: newMemoContentText))
                             dismiss()
                     }
                 }
             }
         }
-    }
-    func addNewMemo() {
-        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: countSetting.modifiedTextCharacterCount(text: newMemoContentText))
-        
-        memoData.memos.insert(newMemo, at: 0)
-        newMemoTitleText = ""
-        newMemoContentText = ""
     }
 }
 
