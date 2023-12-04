@@ -32,7 +32,7 @@ struct EditCountMemoView: View {
                             memoData.saveMemo(memo: memo,
                                               memoTitleText: memoTitleText,
                                               memoContentText: memoContentText,
-                                              charCount: countSetting.modifiedTextCharacterCount(text: memoContentText))
+                                              characterCount: countSetting.modifiedTextCharacterCount(text: memoContentText))
                         dismiss()
                     }
                 }
