@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CountMemo: Identifiable {
+struct CountMemo: Identifiable, Codable {
     var id = UUID()
     var title: String
     var content: String

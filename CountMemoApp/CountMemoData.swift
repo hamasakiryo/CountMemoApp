@@ -12,11 +12,18 @@ class CountMemoData: ObservableObject {
         CountMemo(title: "タイトル2", content: "内容2", date: "2023\n11/22", characterCount: 2000)
     ]
     
+    let decoder = JSONDecoder()
+    let encoder = JSONEncoder()
+    
     func saveMemo(memo: CountMemo, memoTitleText: String, memoContentText: String, characterCount: Int) {
     if let index = memos.firstIndex(where: { $0.id == memo.id }) {
         memos[index].title = memoTitleText
         memos[index].content = memoContentText
         memos[index].characterCount = characterCount
+        }
+        
+        if let encodedMemoData = try? encoder.encode(memos) {
+            UserDefaults.standard.set(encodedMemoData, forKey: "memos")
         }
     }
     
@@ -24,7 +31,14 @@ class CountMemoData: ObservableObject {
         let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: characterCount)
         
         memos.insert(newMemo, at: 0)
+        
+        
+        if let encodedMemoData = try? encoder.encode(memos) {
+            UserDefaults.standard.set(encodedMemoData, forKey: "memos")
+        }
     }
+    
+    
     
     func removeEmptyMemo() {
         guard !memos.isEmpty else {
@@ -33,6 +47,13 @@ class CountMemoData: ObservableObject {
         
         if memos[0].title.isEmpty && memos[0].content.isEmpty {
            memos.remove(at: 0)
+        }
+    }
+    
+    func getMemoData(memos: [CountMemo]) {
+        if let memoData = UserDefaults.standard.data(forKey: "memos"),
+           let decodedMemoData = try? decoder.decode([CountMemo].self, from: memoData) {
+            self.memos = decodedMemoData
         }
     }
 }
