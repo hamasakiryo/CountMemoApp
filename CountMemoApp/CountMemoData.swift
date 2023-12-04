@@ -25,4 +25,14 @@ class CountMemoData: ObservableObject {
         
         memos.insert(newMemo, at: 0)
     }
+    
+    func removeEmptyMemo() {
+        guard !memos.isEmpty else {
+            return
+        }
+        
+        if memos[0].title.isEmpty && memos[0].content.isEmpty {
+           memos.remove(at: 0)
+        }
+    }
 }
