@@ -29,18 +29,14 @@ struct EditCountMemoView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("<リスト") {
-                            saveMemo()
-                            dismiss()
+                            memoData.saveMemo(memo: memo,
+                                              memoTitleText: memoTitleText,
+                                              memoContentText: memoContentText,
+                                              charCount: countSetting.modifiedTextCharacterCount(text: memoContentText))
+                        dismiss()
                     }
                 }
             }
-        }
-    }
-    func saveMemo() {
-        if let index = memoData.memos.firstIndex(where: { $0.id == memo.id }) {
-            memoData.memos[index].title = memoTitleText
-            memoData.memos[index].content = memoContentText
-            memoData.memos[index].characterCount = countSetting.modifiedTextCharacterCount(text: memoContentText)
         }
     }
 }
