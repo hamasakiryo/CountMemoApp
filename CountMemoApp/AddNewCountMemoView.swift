@@ -16,7 +16,7 @@ struct AddNewCountMemoView: View {
     
     var body: some View {
         NavigationStack {
-            CounrMemoInputView(memoTitleText: $newMemoTitleText, memoContentText: $newMemoContentText)
+            CountMemoInputView(memoTitleText: $newMemoTitleText, memoContentText: $newMemoContentText)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("<リスト") {

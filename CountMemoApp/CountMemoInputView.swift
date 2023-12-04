@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CounrMemoInputView: View {
+struct CountMemoInputView: View {
     @Environment (\.dismiss) private var dismiss
     @ObservedObject var countSetting = CountSetting()
     @Binding var memoTitleText: String
@@ -49,5 +49,5 @@ struct CounrMemoInputView: View {
 }
 
 #Preview {
-    CounrMemoInputView(memoTitleText: .constant("タイトル"), memoContentText: .constant("内容"))
+    CountMemoInputView(memoTitleText: .constant("タイトル"), memoContentText: .constant("内容"))
 }
