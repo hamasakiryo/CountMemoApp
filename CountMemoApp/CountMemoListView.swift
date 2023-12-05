@@ -12,18 +12,17 @@ struct CountMemoListView: View {
     var body: some View {
         NavigationStack {
             List(memoData.memos) { memo in
-                NavigationLink(destination: EditCountMemoView(memoData: memoData, memo: memo, countSetting: CountSetting())) {
+                NavigationLink(destination: EditCountMemoView(memoData: memoData, memo: memo)) {
                     CountMemoListRowView(memo: memo)
                 }
             }
             .navigationTitle("リスト")
             .onAppear{
-                memoData.getMemoData(memos: memoData.memos)
                 memoData.removeEmptyMemo()
             }
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AddNewCountMemoView(memoData: memoData, countSetting: CountSetting())) {
+                    NavigationLink(destination: AddNewCountMemoView(memoData: memoData)) {
                             Image(systemName: "square.and.pencil")
                     }
                     .foregroundStyle(.primary)
