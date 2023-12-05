@@ -13,11 +13,14 @@ struct AddNewCountMemoView: View {
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
     @State var isShowCountSettingView = false
+    @State var includeSpace = false
+    @State var includeNewLine = false
+    @State var removeEnclosedText = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("計:\(memoData.modifiedTextCharacterCount(text: newMemoContentText))")
+                Text("計:\(memoData.modifiedTextCharacterCount(text: newMemoContentText, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText))")
                 .font(.title)
                 .fontWeight(.bold)
             TextField("タイトルを入力", text: $newMemoTitleText)
@@ -29,7 +32,7 @@ struct AddNewCountMemoView: View {
                 .padding(.horizontal, 10.0)
         }
         .sheet(isPresented: $isShowCountSettingView) {
-            CountSettingView(memoData: memoData)
+            CountSettingView(includeSpace: $includeSpace, includeNewLine: $includeNewLine, removeEnclosedText: $removeEnclosedText)
                 .presentationDetents([.medium])
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -52,7 +55,16 @@ struct AddNewCountMemoView: View {
                         Button("<リスト") {
                             memoData.addNewMemo(newMemoTitleText: newMemoTitleText,
                                                 newMemoContentText: newMemoContentText,
-                                                characterCount: memoData.modifiedTextCharacterCount(text: newMemoContentText))
+                                                characterCount: memoData.modifiedTextCharacterCount(
+                                                    text: newMemoContentText,
+                                                    includeSpace: includeSpace,
+                                                    includeNewLine: includeNewLine,
+                                                    removeEnclosedText: removeEnclosedText
+                                                ),
+                                                includeSpace: includeSpace, 
+                                                includeNewLine: includeNewLine,
+                                                removeEnclosedText: removeEnclosedText
+                                                )
                             dismiss()
                     }
                 }

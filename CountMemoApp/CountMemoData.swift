@@ -7,18 +7,10 @@
 
 import SwiftUI
 class CountMemoData: ObservableObject {
-    // 文字数を数える際に空白を含めるかどうかを切り替えるためのフラグ
-    @Published var includeSpace = false
-    
-    //改行を含めるかどうかを切り替えるフラグ
-    @Published var includeNewLine = false
-    
-    //'//'で囲った文字を含めるかどうかを切り替えるフラグ
-    @Published var removeEnclosedText = false
     
     @Published var memos: [CountMemo] = [
-        CountMemo(title: "タイトル1", content: "内容1", date: "2023\n11/21", characterCount: 1000),
-        CountMemo(title: "タイトル2", content: "内容2", date: "2023\n11/22", characterCount: 2000)
+        CountMemo(title: "タイトル1", content: "内容1", date: "2023\n11/21", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false),
+        CountMemo(title: "タイトル2", content: "内容2", date: "2023\n11/22", characterCount: 2000, includeSpace: false, includeNewLine: false, removeEnclosedText: false)
     ]
     
     func saveMemo(memo: CountMemo, memoTitleText: String, memoContentText: String, characterCount: Int) {
@@ -29,8 +21,9 @@ class CountMemoData: ObservableObject {
         }
     }
     
-    func addNewMemo(newMemoTitleText: String, newMemoContentText: String, characterCount: Int) {
-        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: characterCount)
+    func addNewMemo(newMemoTitleText: String, newMemoContentText: String, characterCount: Int, includeSpace: Bool,
+                    includeNewLine: Bool, removeEnclosedText: Bool) {
+        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterCount: characterCount, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText)
         
         memos.insert(newMemo, at: 0)
     }
@@ -47,8 +40,7 @@ class CountMemoData: ObservableObject {
         }
     }
     
-    // 修正されたテキストの文字数をカウントする関数
-    func modifiedTextCharacterCount(text: String) -> Int {
+    func modifiedTextCharacterCount(text: String, includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool) -> Int {
         var modifiedText = text
         
         // includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)

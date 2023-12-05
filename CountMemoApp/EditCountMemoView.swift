@@ -13,6 +13,9 @@ struct EditCountMemoView: View {
     @ObservedObject var memoData: CountMemoData
     @State var memoTitleText: String
     @State var memoContentText: String
+    @State var includeSpace: Bool
+    @State var includeNewLine: Bool
+    @State var removeEnclosedText: Bool
     @State var isShowCountSettingView = false
     
     init(memoData: CountMemoData,memo: CountMemo) {
@@ -20,12 +23,15 @@ struct EditCountMemoView: View {
         _memoData = ObservedObject(wrappedValue: memoData)
         _memoTitleText = State(initialValue: memo.title)
         _memoContentText = State(initialValue: memo.content)
+        _includeSpace = State(initialValue: memo.includeSpace)
+        _includeNewLine = State(initialValue: memo.includeNewLine)
+        _removeEnclosedText = State(initialValue: memo.removeEnclosedText)
     }
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("計:\(memoData.modifiedTextCharacterCount(text: memoContentText))")
+                Text("計:\(memoData.modifiedTextCharacterCount(text: memoContentText, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText))")
                     .font(.title)
                     .fontWeight(.bold)
                 TextField("タイトルを入力", text: $memoTitleText)
@@ -37,7 +43,7 @@ struct EditCountMemoView: View {
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(memoData: memoData)
+                CountSettingView(includeSpace: $includeSpace, includeNewLine: $includeNewLine, removeEnclosedText: $removeEnclosedText)
                     .presentationDetents([.medium])
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -55,21 +61,26 @@ struct EditCountMemoView: View {
                 }
             }
         }
-                .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("<リスト") {
-                            memoData.saveMemo(memo: memo,
-                                              memoTitleText: memoTitleText,
-                                              memoContentText: memoContentText,
-                                              characterCount: memoData.modifiedTextCharacterCount(text: memoContentText))
-                        dismiss()
-                    }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button("<リスト") {
+                    memoData.saveMemo(memo: memo,
+                                      memoTitleText: memoTitleText,
+                                      memoContentText: memoContentText,
+                                      characterCount: memoData.modifiedTextCharacterCount(
+                                        text: memoContentText,
+                                        includeSpace: includeSpace,
+                                        includeNewLine: includeNewLine,
+                                        removeEnclosedText: removeEnclosedText
+                                      ))
+                    dismiss()
                 }
             }
         }
     }
+}
 
 
 #Preview {
-    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000))
+    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false))
 }

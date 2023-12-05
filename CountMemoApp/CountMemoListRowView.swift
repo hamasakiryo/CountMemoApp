@@ -38,5 +38,5 @@ struct CountMemoListRowView: View {
 }
 
 #Preview {
-    CountMemoListRowView(memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/22", characterCount: 1000))
+    CountMemoListRowView(memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/22", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false))
 }
