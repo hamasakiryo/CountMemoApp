@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-class CountMemoData: ObservableObject {
+class CountMemoManager: ObservableObject {
     
     @Published var memos: [CountMemo] = [
         CountMemo(title: "タイトル1", content: "内容1", date: "2023\n11/21", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false),

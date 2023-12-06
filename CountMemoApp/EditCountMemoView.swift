@@ -10,7 +10,7 @@ import SwiftUI
 struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     var memo: CountMemo
-    @ObservedObject var memoData: CountMemoData
+    @ObservedObject var memoData: CountMemoManager
     @State var memoTitleText: String
     @State var memoContentText: String
     @State var characterLimit: String
@@ -20,7 +20,7 @@ struct EditCountMemoView: View {
     @State var isShowCountSettingView = false
     @State var switchCountdown = false
     
-    init(memoData: CountMemoData,memo: CountMemo) {
+    init(memoData: CountMemoManager,memo: CountMemo) {
         self.memo = memo
         _memoData = ObservedObject(wrappedValue: memoData)
         _memoTitleText = State(initialValue: memo.title)
@@ -88,5 +88,5 @@ struct EditCountMemoView: View {
 
 
 #Preview {
-    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false))
+    EditCountMemoView(memoData: CountMemoManager(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false))
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
-    @ObservedObject var memoData: CountMemoData
+    @ObservedObject var memoData: CountMemoManager
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
     @State var characterLimit = ""
@@ -61,7 +61,7 @@ struct AddNewCountMemoView: View {
                             memoData.addNewMemo(newMemoTitleText: newMemoTitleText,
                                                 newMemoContentText: newMemoContentText, characterLimit: characterLimit,
                                                 characterCount: characterCount,
-                                                includeSpace: includeSpace, 
+                                                includeSpace: includeSpace,
                                                 includeNewLine: includeNewLine,
                                                 removeEnclosedText: removeEnclosedText,
                                                 switchCountdown: switchCountdown
@@ -75,5 +75,5 @@ struct AddNewCountMemoView: View {
 
 
 #Preview {
-    AddNewCountMemoView(memoData: CountMemoData())
+    AddNewCountMemoView(memoData: CountMemoManager())
 }
