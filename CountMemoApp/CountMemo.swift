@@ -12,8 +12,10 @@ struct CountMemo: Identifiable {
     var title: String
     var content: String
     var date: String
+    var characterLimit: String
     var characterCount: Int
     var includeSpace: Bool
     var includeNewLine: Bool
     var removeEnclosedText: Bool
+    var switchCountdown: Bool
 }

@@ -13,27 +13,32 @@ struct EditCountMemoView: View {
     @ObservedObject var memoData: CountMemoData
     @State var memoTitleText: String
     @State var memoContentText: String
+    @State var characterLimit: String
     @State var includeSpace: Bool
     @State var includeNewLine: Bool
     @State var removeEnclosedText: Bool
     @State var isShowCountSettingView = false
+    @State var switchCountdown = false
     
     init(memoData: CountMemoData,memo: CountMemo) {
         self.memo = memo
         _memoData = ObservedObject(wrappedValue: memoData)
         _memoTitleText = State(initialValue: memo.title)
         _memoContentText = State(initialValue: memo.content)
+        _characterLimit = State(initialValue: memo.characterLimit)
         _includeSpace = State(initialValue: memo.includeSpace)
         _includeNewLine = State(initialValue: memo.includeNewLine)
         _removeEnclosedText = State(initialValue: memo.removeEnclosedText)
+        _switchCountdown = State(initialValue: memo.switchCountdown)
     }
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("計:\(memoData.modifiedTextCharacterCount(text: memoContentText, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText))")
-                    .font(.title)
-                    .fontWeight(.bold)
+                Text("\(switchCountdown ? "残:" : "計:")\(memoData.modifiedTextCharacterCount(text: memoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown))")
+                .foregroundStyle(memoData.modifiedTextCharacterCount(text: memoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown) < 0 ? .red : .primary)
+                .font(.title)
+                .fontWeight(.bold)
                 TextField("タイトルを入力", text: $memoTitleText)
                     .font(.title)
                     .fontWeight(.bold)
@@ -43,7 +48,11 @@ struct EditCountMemoView: View {
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(includeSpace: $includeSpace, includeNewLine: $includeNewLine, removeEnclosedText: $removeEnclosedText)
+                CountSettingView(includeSpace: $includeSpace,
+                                 includeNewLine: $includeNewLine,
+                                 removeEnclosedText: $removeEnclosedText,
+                                 switchCountDown: $switchCountdown, charcterLimit: $characterLimit
+                    )
                     .presentationDetents([.medium])
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -69,9 +78,11 @@ struct EditCountMemoView: View {
                                       memoContentText: memoContentText,
                                       characterCount: memoData.modifiedTextCharacterCount(
                                         text: memoContentText,
+                                        characterLimit: characterLimit, 
                                         includeSpace: includeSpace,
                                         includeNewLine: includeNewLine,
-                                        removeEnclosedText: removeEnclosedText
+                                        removeEnclosedText: removeEnclosedText, 
+                                        switchCountdown: switchCountdown
                                       ))
                     dismiss()
                 }
@@ -82,5 +93,5 @@ struct EditCountMemoView: View {
 
 
 #Preview {
-    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false))
+    EditCountMemoView(memoData: CountMemoData(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false))
 }

@@ -12,15 +12,18 @@ struct AddNewCountMemoView: View {
     @ObservedObject var memoData: CountMemoData
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
+    @State var characterLimit = ""
     @State var isShowCountSettingView = false
     @State var includeSpace = false
     @State var includeNewLine = false
     @State var removeEnclosedText = false
+    @State var switchCountdown = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("計:\(memoData.modifiedTextCharacterCount(text: newMemoContentText, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText))")
+                Text("\(switchCountdown ? "残:" : "計:")\(memoData.modifiedTextCharacterCount(text: newMemoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown))")
+                .foregroundStyle(memoData.modifiedTextCharacterCount(text: newMemoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown) < 0 ? .red : .primary)
                 .font(.title)
                 .fontWeight(.bold)
             TextField("タイトルを入力", text: $newMemoTitleText)
@@ -32,7 +35,7 @@ struct AddNewCountMemoView: View {
                 .padding(.horizontal, 10.0)
         }
         .sheet(isPresented: $isShowCountSettingView) {
-            CountSettingView(includeSpace: $includeSpace, includeNewLine: $includeNewLine, removeEnclosedText: $removeEnclosedText)
+            CountSettingView(includeSpace: $includeSpace, includeNewLine: $includeNewLine, removeEnclosedText: $removeEnclosedText, switchCountDown: $switchCountdown, charcterLimit: $characterLimit)
                 .presentationDetents([.medium])
         }
         .navigationBarTitleDisplayMode(.inline)
@@ -54,16 +57,17 @@ struct AddNewCountMemoView: View {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("<リスト") {
                             memoData.addNewMemo(newMemoTitleText: newMemoTitleText,
-                                                newMemoContentText: newMemoContentText,
+                                                newMemoContentText: newMemoContentText, characterLimit: characterLimit,
                                                 characterCount: memoData.modifiedTextCharacterCount(
                                                     text: newMemoContentText,
-                                                    includeSpace: includeSpace,
+                                                    characterLimit: characterLimit, includeSpace: includeSpace,
                                                     includeNewLine: includeNewLine,
-                                                    removeEnclosedText: removeEnclosedText
+                                                    removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown
                                                 ),
                                                 includeSpace: includeSpace, 
                                                 includeNewLine: includeNewLine,
-                                                removeEnclosedText: removeEnclosedText
+                                                removeEnclosedText: removeEnclosedText,
+                                                switchCountdown: switchCountdown
                                                 )
                             dismiss()
                     }
