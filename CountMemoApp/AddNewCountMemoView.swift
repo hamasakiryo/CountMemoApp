@@ -20,10 +20,12 @@ struct AddNewCountMemoView: View {
     @State var switchCountdown = false
     
     var body: some View {
+        let characterCount = memoData.modifiedTextCharacterCount(text: newMemoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown)
+        
         NavigationStack {
             VStack {
-                Text("\(switchCountdown ? "残:" : "計:")\(memoData.modifiedTextCharacterCount(text: newMemoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown))")
-                .foregroundStyle(memoData.modifiedTextCharacterCount(text: newMemoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown) < 0 ? .red : .primary)
+                Text("\(switchCountdown ? "残:" : "計:")\(characterCount)")
+                .foregroundStyle(characterCount < 0 ? .red : .primary)
                 .font(.title)
                 .fontWeight(.bold)
             TextField("タイトルを入力", text: $newMemoTitleText)
@@ -58,12 +60,7 @@ struct AddNewCountMemoView: View {
                         Button("<リスト") {
                             memoData.addNewMemo(newMemoTitleText: newMemoTitleText,
                                                 newMemoContentText: newMemoContentText, characterLimit: characterLimit,
-                                                characterCount: memoData.modifiedTextCharacterCount(
-                                                    text: newMemoContentText,
-                                                    characterLimit: characterLimit, includeSpace: includeSpace,
-                                                    includeNewLine: includeNewLine,
-                                                    removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown
-                                                ),
+                                                characterCount: characterCount,
                                                 includeSpace: includeSpace, 
                                                 includeNewLine: includeNewLine,
                                                 removeEnclosedText: removeEnclosedText,

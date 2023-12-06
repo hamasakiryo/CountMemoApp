@@ -33,10 +33,12 @@ struct EditCountMemoView: View {
     }
     
     var body: some View {
+        let characterCount = memoData.modifiedTextCharacterCount(text: memoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown)
+        
         NavigationStack {
             VStack {
-                Text("\(switchCountdown ? "残:" : "計:")\(memoData.modifiedTextCharacterCount(text: memoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown))")
-                .foregroundStyle(memoData.modifiedTextCharacterCount(text: memoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown) < 0 ? .red : .primary)
+                Text("\(switchCountdown ? "残:" : "計:")\(characterCount)")
+                .foregroundStyle(characterCount < 0 ? .red : .primary)
                 .font(.title)
                 .fontWeight(.bold)
                 TextField("タイトルを入力", text: $memoTitleText)
@@ -76,14 +78,7 @@ struct EditCountMemoView: View {
                     memoData.saveMemo(memo: memo,
                                       memoTitleText: memoTitleText,
                                       memoContentText: memoContentText,
-                                      characterCount: memoData.modifiedTextCharacterCount(
-                                        text: memoContentText,
-                                        characterLimit: characterLimit, 
-                                        includeSpace: includeSpace,
-                                        includeNewLine: includeNewLine,
-                                        removeEnclosedText: removeEnclosedText, 
-                                        switchCountdown: switchCountdown
-                                      ))
+                                      characterCount: characterCount)
                     dismiss()
                 }
             }
