@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CountMemoListView: View {
-    @ObservedObject var memoData: CountMemoManager
+    @ObservedObject var memoData = CountMemoManager()
     
     var body: some View {
         NavigationStack {
@@ -37,5 +37,5 @@ struct CountMemoListView: View {
 
 
 #Preview {
-    CountMemoListView(memoData: CountMemoManager())
+    CountMemoListView()
 }

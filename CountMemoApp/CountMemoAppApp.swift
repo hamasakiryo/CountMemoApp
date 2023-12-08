@@ -11,7 +11,7 @@ import SwiftUI
 struct CountMemoAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CountMemoListView()
         }
     }
 }
