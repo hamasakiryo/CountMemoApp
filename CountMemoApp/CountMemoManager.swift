@@ -6,23 +6,24 @@
 //
 
 import SwiftUI
+
 class CountMemoManager: ObservableObject {
     
-    @Published var memos: [CountMemo] = [
-        CountMemo(title: "タイトル1", content: "内容1", date: "2023\n11/21", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false),
-        CountMemo(title: "タイトル2", content: "内容2", date: "2023\n11/22", characterLimit: "300", characterCount: 2000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false)
-    ]
+    @Published var memos: [CountMemo] = []
     
-    func saveMemo(memo: CountMemo, memoTitleText: String, memoContentText: String, characterCount: Int) {
+    func saveEditMemo(memo: CountMemo, memoTitleText: String, memoContentText: String, characterCount: Int,includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) {
     if let index = memos.firstIndex(where: { $0.id == memo.id }) {
         memos[index].title = memoTitleText
         memos[index].content = memoContentText
         memos[index].characterCount = characterCount
+        memos[index].includeSpace = includeSpace
+        memos[index].includeNewLine = includeNewLine
+        memos[index].removeEnclosedText = removeEnclosedText
+        memos[index].switchCountdown = switchCountdown
         }
     }
     
-    func addNewMemo(newMemoTitleText: String, newMemoContentText: String, characterLimit: String, characterCount: Int, includeSpace: Bool,
-                    includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) {
+    func addNewMemo(newMemoTitleText: String, newMemoContentText: String, characterLimit: String, characterCount: Int, includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) {
         let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterLimit: characterLimit, characterCount: characterCount, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown)
         
         memos.insert(newMemo, at: 0)

@@ -17,8 +17,8 @@ struct EditCountMemoView: View {
     @State var includeSpace: Bool
     @State var includeNewLine: Bool
     @State var removeEnclosedText: Bool
+    @State var switchCountdown: Bool
     @State var isShowCountSettingView = false
-    @State var switchCountdown = false
     
     init(memoData: CountMemoManager,memo: CountMemo) {
         self.memo = memo
@@ -75,10 +75,14 @@ struct EditCountMemoView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button("<リスト") {
-                    memoData.saveMemo(memo: memo,
+                    memoData.saveEditMemo(memo: memo,
                                       memoTitleText: memoTitleText,
                                       memoContentText: memoContentText,
-                                      characterCount: characterCount)
+                                      characterCount: characterCount,
+                                      includeSpace: includeSpace, 
+                                      includeNewLine: includeNewLine,
+                                      removeEnclosedText: removeEnclosedText, 
+                                      switchCountdown: switchCountdown)
                     dismiss()
                 }
             }
