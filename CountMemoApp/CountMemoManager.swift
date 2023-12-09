@@ -23,6 +23,9 @@ class CountMemoManager: ObservableObject {
         memos[index].includeNewLine = includeNewLine
         memos[index].removeEnclosedText = removeEnclosedText
         memos[index].switchCountdown = switchCountdown
+        //既存のメモを削除して編集したメモを0番目に追加
+        let editedmemo = memos.remove(at: index)
+        memos.insert(editedmemo, at: 0)
         }
     }
     
@@ -40,7 +43,7 @@ class CountMemoManager: ObservableObject {
         guard !memos.isEmpty else {
             return
         }
-        //追加されたメモのtitle,contentが空か確認し、空であれば配列からそのメモを削除
+        //追加、編集されたメモのtitle,contentが空か確認し、空であれば配列からそのメモを削除
         if memos[0].title.isEmpty && memos[0].content.isEmpty {
            memos.remove(at: 0)
         }
