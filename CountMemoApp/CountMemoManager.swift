@@ -32,7 +32,7 @@ class CountMemoManager: ObservableObject {
     ///新しいメモを作成し、配列に追加するメソッド(AddNewCountMemoViewで使用)
     func addNewMemo(newMemoTitleText: String, newMemoContentText: String, characterLimit: String, characterCount: Int, includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) {
         //引数に与えられた情報をCountMemoに渡して新しいメモを作成
-        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, date: "2023\n11/23", characterLimit: characterLimit, characterCount: characterCount, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown)
+        let newMemo = CountMemo(title: newMemoTitleText, content: newMemoContentText, characterLimit: characterLimit, characterCount: characterCount, includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown)
         //配列に追加
         memos.insert(newMemo, at: 0)
     }

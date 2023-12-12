@@ -79,9 +79,9 @@ struct EditCountMemoView: View {
                                       memoTitleText: memoTitleText,
                                       memoContentText: memoContentText,
                                       characterCount: characterCount,
-                                      includeSpace: includeSpace, 
+                                      includeSpace: includeSpace,
                                       includeNewLine: includeNewLine,
-                                      removeEnclosedText: removeEnclosedText, 
+                                      removeEnclosedText: removeEnclosedText,
                                       switchCountdown: switchCountdown)
                     dismiss()
                 }
@@ -92,5 +92,5 @@ struct EditCountMemoView: View {
 
 
 #Preview {
-    EditCountMemoView(memoData: CountMemoManager(), memo: CountMemo(title: "タイトル", content: "内容", date: "2023\n11/21", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false))
+    EditCountMemoView(memoData: CountMemoManager(), memo: CountMemo(title: "タイトル", content: "内容", characterLimit: "300", characterCount: 1000, includeSpace: false, includeNewLine: false, removeEnclosedText: false, switchCountdown: false))
 }

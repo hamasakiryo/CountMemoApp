@@ -11,7 +11,7 @@ struct CountMemo: Identifiable {
     var id = UUID()
     var title: String
     var content: String
-    var date: String
+    var date = Date()
     var characterLimit: String
     var characterCount: Int
     var includeSpace: Bool
