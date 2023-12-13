@@ -53,21 +53,18 @@ class CountMemoManager: ObservableObject {
     func modifiedTextCharacterCount(text: String, characterLimit: String, includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) -> Int {
         var modifiedText = text
         
-        //includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)
         if !includeSpace {
-            modifiedText = modifiedText.replacingOccurrences(of: "[ 　]", with: "", options: .regularExpression)
-        }
-        //includeNewLineがfalseの場合、テキストから改行を除去(デフォルトで文字数のカウントには改行が含まれない)
-        if !includeNewLine {
-            modifiedText = modifiedText.replacingOccurrences(of: "\n", with: "")
+            modifiedText = modifiedText.trimmingCharacters(in: .whitespaces)
         }
         
-        //removeEnclosedTextがtrueの場合、テキストから'//'で囲まれた文字を除去(例: //文字// とすると「文字」が除去される)
+        if !includeNewLine {
+            modifiedText = modifiedText.trimmingCharacters(in: .newlines)
+        }
+        
         if removeEnclosedText {
             modifiedText = modifiedText.replacingOccurrences(of: "//(.*?)//", with: "", options: .regularExpression)
         }
         
-        //カウントダウン方式に変更
         if switchCountdown {
             return((Int(characterLimit) ?? 0) - modifiedText.count)
         }
