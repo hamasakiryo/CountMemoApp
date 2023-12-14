@@ -6,24 +6,25 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CountMemoListView: View {
-    @ObservedObject var memoData = CountMemoManager()
+    @ObservedResults(CountMemo.self, configuration: Realm.Configuration(schemaVersion: 2)) var memos
     
     var body: some View {
         NavigationStack {
-            List(memoData.memos) { memo in
-                NavigationLink(destination: EditCountMemoView(memoData: memoData, memo: memo)) {
+            List(memos) { memo in
+                NavigationLink(destination: EditCountMemoView(memo: memo)) {
                     CountMemoListRowView(memo: memo)
                 }
             }
             .navigationTitle("リスト")
             .onAppear{
-                memoData.removeEmptyMemo()
+                //空のメモを削除する処理
             }
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
-                    NavigationLink(destination: AddNewCountMemoView(memoData: memoData)) {
+                    NavigationLink(destination: AddNewCountMemoView().environment(\.realm, try! .init(configuration: Realm.Configuration()))) {
                             Image(systemName: "square.and.pencil")
                     }
                     .foregroundStyle(.primary)

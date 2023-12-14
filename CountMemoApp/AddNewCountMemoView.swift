@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddNewCountMemoView: View {
+    @ObservedResults(CountMemo.self) var memos
     @Environment (\.dismiss) private var dismiss
-    @ObservedObject var memoData: CountMemoManager
     @State var newMemoTitleText = ""
     @State var newMemoContentText = ""
     @State var characterLimit = ""
@@ -34,7 +35,7 @@ struct AddNewCountMemoView: View {
                 Divider()
                 TextEditor(text: $newMemoContentText)
                     .onChange(of: newMemoContentText) {
-                        characterCount = memoData.modifiedTextCharacterCount(
+                        characterCount = modifiedTextCharacterCount(
                             text: newMemoContentText,
                             characterLimit: characterLimit,
                             includeSpace: includeSpace,
@@ -66,22 +67,50 @@ struct AddNewCountMemoView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("<リスト") {
-                        memoData.addNewMemo(newMemoTitleText: newMemoTitleText,
-                                            newMemoContentText: newMemoContentText, characterLimit: characterLimit,
-                                            characterCount: characterCount,
-                                            includeSpace: includeSpace,
-                                            includeNewLine: includeNewLine,
-                                            removeEnclosedText: removeEnclosedText,
-                                            switchCountdown: switchCountdown
-                        )
+                        //Realmに新しいメモを保存
+                        let newMemo = CountMemo()
+                        newMemo.title = newMemoTitleText
+                        newMemo.content = newMemoContentText
+                        newMemo.characterCount = characterCount
+                        newMemo.characterLimit = characterLimit
+                        newMemo.includeSpace = includeSpace
+                        newMemo.includeNewLine = includeNewLine
+                        newMemo.removeEnclosedText = removeEnclosedText
+                        newMemo.switchCountdown = switchCountdown
+                        $memos.append(newMemo)
                         dismiss()
                     }
                 }
             }
         }
     }
+    ///条件に応じてtextを修正し、その文字数を返すメソッド(EditCountMemoView,AddNewCountMemoViewで使用)
+    func modifiedTextCharacterCount(text: String, characterLimit: String, includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) -> Int {
+        var modifiedText = text
+        
+        //includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)
+        if !includeSpace {
+            modifiedText = modifiedText.replacingOccurrences(of: "[ 　]", with: "", options: .regularExpression)
+        }
+        //includeNewLineがfalseの場合、テキストから改行を除去(デフォルトで文字数のカウントには改行が含まれない)
+        if !includeNewLine {
+            modifiedText = modifiedText.replacingOccurrences(of: "\n", with: "")
+        }
+        
+        //removeEnclosedTextがtrueの場合、テキストから'//'で囲まれた文字を除去(例: //文字// とすると「文字」が除去される)
+        if removeEnclosedText {
+            modifiedText = modifiedText.replacingOccurrences(of: "//(.*?)//", with: "", options: .regularExpression)
+        }
+        
+        //カウントダウン方式に変更
+        if switchCountdown {
+            return((Int(characterLimit) ?? 0) - modifiedText.count)
+        }
+        
+        return modifiedText.count
+    }
 }
 
 #Preview {
-    AddNewCountMemoView(memoData: CountMemoManager())
+    AddNewCountMemoView()
 }

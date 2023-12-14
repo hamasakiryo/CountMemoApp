@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct CountMemo: Identifiable {
-    var id = UUID()
-    var title: String
-    var content: String
-    var date = Date()
-    var characterLimit: String
-    var characterCount: Int
-    var includeSpace: Bool
-    var includeNewLine: Bool
-    var removeEnclosedText: Bool
-    var switchCountdown: Bool
+class CountMemo: Object,Identifiable {
+    @Persisted var id = UUID()
+    @Persisted var title: String
+    @Persisted var content: String
+    @Persisted var date = Date()
+    @Persisted var characterLimit: String
+    @Persisted var characterCount: Int
+    @Persisted var includeSpace: Bool
+    @Persisted var includeNewLine: Bool
+    @Persisted var removeEnclosedText: Bool
+    @Persisted var switchCountdown: Bool
 }
