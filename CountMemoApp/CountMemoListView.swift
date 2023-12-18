@@ -16,6 +16,12 @@ struct CountMemoListView: View {
             List(memos) { memo in
                 NavigationLink(destination: EditCountMemoView(memo: memo)) {
                     CountMemoListRowView(memo: memo)
+                        .swipeActions(edge: .trailing) {
+                            Button{$memos.remove(memo)} label: {
+                                Image(systemName: "trash")
+                                    .tint(.red)
+                            }
+                        }
                 }
             }
             .navigationTitle("リスト")
