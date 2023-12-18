@@ -11,51 +11,34 @@ import RealmSwift
 struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     @ObservedRealmObject var memo: CountMemo
-    @State var memoTitleText: String
-    @State var memoContentText: String
-    @State var characterLimit: String
-    @State var characterCount: Int
-    @State var includeSpace: Bool
-    @State var includeNewLine: Bool
-    @State var removeEnclosedText: Bool
-    @State var switchCountdown: Bool
-    @State var isShowCountSettingView = false
-    
-    init(memo: CountMemo) {
-        self.memo = memo
-        _memoTitleText = State(initialValue: memo.title)
-        _memoContentText = State(initialValue: memo.content)
-        _characterLimit = State(initialValue: memo.characterLimit)
-        _characterCount = State(initialValue: memo.characterCount)
-        _includeSpace = State(initialValue: memo.includeSpace)
-        _includeNewLine = State(initialValue: memo.includeNewLine)
-        _removeEnclosedText = State(initialValue: memo.removeEnclosedText)
-        _switchCountdown = State(initialValue: memo.switchCountdown)
-    }
+    @State private var isShowCountSettingView = false
     
     var body: some View {
         NavigationStack {
             VStack {
-                Text("\(switchCountdown ? "残:" : "計:")\(characterCount)")
-                    .foregroundStyle(characterCount < 0 ? .red : .primary)
+                Text("\(memo.switchCountdown ? "残:" : "計:")\(memo.characterCount)")
+                    .foregroundStyle(memo.characterCount < 0 ? .red : .primary)
                     .font(.title)
                     .fontWeight(.bold)
-                TextField("タイトルを入力", text: $memoTitleText)
+                TextField("タイトルを入力", text: $memo.title)
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.leading, 10.0)
                 Divider()
-                TextEditor(text: $memoContentText)
-                    .onChange(of: memoContentText) {
-                        characterCount = modifiedTextCharacterCount(text: memoContentText, characterLimit: characterLimit,includeSpace: includeSpace, includeNewLine: includeNewLine, removeEnclosedText: removeEnclosedText, switchCountdown: switchCountdown)
+                TextEditor(text: $memo.content)
+                    .onChange(of: memo.content) {
+                        let thawMemo = memo.thaw()
+                        try! thawMemo?.realm?.write{
+                            thawMemo?.characterCount = modifiedTextCharacterCount(text: memo.content, characterLimit: memo.characterLimit,includeSpace: memo.includeSpace, includeNewLine: memo.includeNewLine, removeEnclosedText: memo.removeEnclosedText, switchCountdown: memo.switchCountdown)
+                        }
                     }
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $isShowCountSettingView) {
-                CountSettingView(includeSpace: $includeSpace,
-                                 includeNewLine: $includeNewLine,
-                                 removeEnclosedText: $removeEnclosedText,
-                                 switchCountDown: $switchCountdown, charcterLimit: $characterLimit
+                CountSettingView(includeSpace: $memo.includeSpace,
+                                 includeNewLine: $memo.includeNewLine,
+                                 removeEnclosedText: $memo.removeEnclosedText,
+                                 switchCountDown: $memo.switchCountdown, charcterLimit: $memo.characterLimit
                 )
                 .presentationDetents([.medium])
             }
@@ -77,17 +60,6 @@ struct EditCountMemoView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button("<リスト") {
-                    let thawMemo = memo.thaw()
-                    try! thawMemo?.realm!.write{
-                        thawMemo?.title = memoTitleText
-                        thawMemo?.content = memoContentText
-                        thawMemo?.characterCount = characterCount
-                        thawMemo?.characterLimit = characterLimit
-                        thawMemo?.includeSpace = includeSpace
-                        thawMemo?.includeNewLine = includeNewLine
-                        thawMemo?.removeEnclosedText = removeEnclosedText
-                        thawMemo?.switchCountdown = switchCountdown
-                    }
                     dismiss()
                 }
             }
