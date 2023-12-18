@@ -11,15 +11,15 @@ import RealmSwift
 struct AddNewCountMemoView: View {
     @ObservedResults(CountMemo.self) var memos
     @Environment (\.dismiss) private var dismiss
-    @State var newMemoTitleText = ""
-    @State var newMemoContentText = ""
-    @State var characterLimit = ""
-    @State var characterCount = 0
-    @State var isShowCountSettingView = false
-    @State var includeSpace = false
-    @State var includeNewLine = false
-    @State var removeEnclosedText = false
-    @State var switchCountdown = false
+    @State private var newMemoTitleText = ""
+    @State private var newMemoContentText = ""
+    @State private var characterLimit = ""
+    @State private var characterCount = 0
+    @State private var isShowCountSettingView = false
+    @State private var includeSpace = false
+    @State private var includeNewLine = false
+    @State private var removeEnclosedText = false
+    @State private var switchCountdown = false
     
     var body: some View {
         NavigationStack {
