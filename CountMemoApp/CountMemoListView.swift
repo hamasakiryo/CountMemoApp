@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct CountMemoListView: View {
-    @ObservedResults(CountMemo.self, configuration: Realm.Configuration(schemaVersion: 3)) var memos
+    @ObservedResults(CountMemo.self, configuration: Realm.Configuration(schemaVersion: 3),sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var memos
     
     var body: some View {
         NavigationStack {
