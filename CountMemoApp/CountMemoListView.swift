@@ -24,16 +24,16 @@ struct CountMemoListView: View {
                         }
                 }
             }
-            .onAppear {
-                // Realmインスタンスを取得
+            .onAppear{
+                //realmをインスタンス化(configurationを@ObservedResultsと合わせて)
                 let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 3))
                 
-                // titleとcontentが両方空のメモをフィルタリング
-                let emptyMemos = realm.objects(CountMemo.self).filter("title == '' AND content == ''")
+                //title,contentが空のCountMemoをデータベースから取得
+                let deleteMemo = realm.objects(CountMemo.self).where({$0.title == "" && $0.content == ""})
                 
-                // トランザクション内で空のメモを削除
-                try! realm.write {
-                    realm.delete(emptyMemos)
+                //deleteMemoを削除
+                try! realm.write{
+                    realm.delete(deleteMemo)
                 }
             }
             .navigationTitle("リスト")
