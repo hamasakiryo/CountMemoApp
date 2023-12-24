@@ -9,7 +9,7 @@ import SwiftUI
 import RealmSwift
 
 struct CountMemoListView: View {
-    @ObservedResults(CountMemo.self, configuration: Realm.Configuration(schemaVersion: 3),sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var memos
+    @ObservedResults(CountMemo.self, configuration: Realm.Configuration(schemaVersion:1),sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var memos
     
     var body: some View {
         NavigationStack {
@@ -26,7 +26,7 @@ struct CountMemoListView: View {
             }
             .onAppear{
                 //realmをインスタンス化(configurationを@ObservedResultsと合わせて)
-                let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 3))
+                let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 1))
                 
                 //title,contentが空のCountMemoをデータベースから取得
                 let deleteMemo = realm.objects(CountMemo.self).where({$0.title == "" && $0.content == ""})
