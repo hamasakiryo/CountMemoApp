@@ -12,7 +12,7 @@ struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     @ObservedRealmObject var memo: CountMemo
     @State private var isShowCountSettingView = false
-    @State private var textCounter = TextCounter()
+    var textCounter = TextCounter()
     
     var body: some View {
         NavigationStack {
