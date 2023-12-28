@@ -8,8 +8,8 @@
 import Foundation
 import RealmSwift
 
-class CountMemo: Object,Identifiable {
-    @Persisted var id = UUID()
+class CountMemo: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title: String
     @Persisted var content: String
     @Persisted var date = Date()
