@@ -23,20 +23,7 @@ struct CountMemoListView: View {
                             }
                         }
                 }
-            }
-            .onAppear{
-                //realmをインスタンス化(configurationを@ObservedResultsと合わせて)
-                let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 1))
-                
-                //title,contentが空のCountMemoをデータベースから取得
-                let deleteMemo = realm.objects(CountMemo.self).where({$0.title == "" && $0.content == ""})
-                
-                //deleteMemoを削除
-                try! realm.write{
-                    realm.delete(deleteMemo)
-                }
-            }
-            .navigationTitle("リスト")
+            }            .navigationTitle("リスト")
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: AddNewCountMemoView().environment(\.realm, try! .init(configuration: Realm.Configuration()))) {
