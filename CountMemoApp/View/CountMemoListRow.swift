@@ -18,7 +18,7 @@ struct CountMemoListRow: View {
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
             HStack {
-                Text(memo.date.formatted())
+                Text(memo.date.formatted(date: .numeric, time: .omitted))
                     .padding(.trailing, 10.0)
                 Text(memo.content)
                     .lineLimit(2)
