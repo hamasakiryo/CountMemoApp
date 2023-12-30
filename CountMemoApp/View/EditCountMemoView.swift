@@ -11,7 +11,7 @@ import RealmSwift
 struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     @ObservedRealmObject var memo: CountMemo
-    @State private var isShowCountSettingView = false
+    @State private var showCountSettingView = false
     var textCounter = TextCounter()
     
     var body: some View {
@@ -41,7 +41,7 @@ struct EditCountMemoView: View {
                     }
                     .padding(.horizontal, 10.0)
             }
-            .sheet(isPresented: $isShowCountSettingView) {
+            .sheet(isPresented: $showCountSettingView) {
                 CountSettingView(includeSpace: $memo.includeSpace,
                                  includeNewLine: $memo.includeNewLine,
                                  removeEnclosedText: $memo.removeEnclosedText,
@@ -55,7 +55,7 @@ struct EditCountMemoView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
-                        isShowCountSettingView = true
+                        showCountSettingView = true
                     } label: {
                         Image(systemName: "gearshape.fill")
                             .foregroundStyle(Color.primary)
