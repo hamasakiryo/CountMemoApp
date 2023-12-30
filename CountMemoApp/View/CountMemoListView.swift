@@ -23,7 +23,16 @@ struct CountMemoListView: View {
                             }
                         }
                 }
-            }            .navigationTitle("リスト")
+            }
+            .onAppear{
+                //データベースから空のメモを取得して削除する
+                let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 1))
+                let emptyMemo = realm.objects(CountMemo.self).where({$0.title == "" && $0.content == ""})
+                try! realm.write {
+                    realm.delete(emptyMemo)
+                }
+            }
+            .navigationTitle("リスト")
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: AddNewCountMemoView().environment(\.realm, try! .init(configuration: Realm.Configuration()))) {
