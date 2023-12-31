@@ -15,12 +15,13 @@ struct AddNewCountMemoView: View {
     @State private var newMemoContentText = ""
     @State private var characterLimit = ""
     @State private var characterCount = 0
-    @State private var isShowCountSettingView = false
+    @State private var showCountSettingView = false
     @State private var includeSpace = false
     @State private var includeNewLine = false
     @State private var removeEnclosedText = false
     @State private var switchCountdown = false
-    var textCounter = TextCounter()
+    @State private var deletionDeadLine = Date()
+    private let textCounter = TextCounter()
     
     var body: some View {
         NavigationStack {
@@ -46,7 +47,7 @@ struct AddNewCountMemoView: View {
                     }
                     .padding(.horizontal, 10.0)
             }
-            .sheet(isPresented: $isShowCountSettingView) {
+            .sheet(isPresented: $showCountSettingView) {
                 CountSettingView(includeSpace: $includeSpace, includeNewLine: $includeNewLine, removeEnclosedText: $removeEnclosedText, switchCountDown: $switchCountdown, charcterLimit: $characterLimit)
                     .presentationDetents([.medium])
             }
@@ -56,16 +57,14 @@ struct AddNewCountMemoView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button{
-                        isShowCountSettingView = true
+                        showCountSettingView = true
                     } label: {
                         Image(systemName: "gearshape.fill")
-                            .foregroundStyle(Color.primary)
+                            .foregroundStyle(.primary)
                             .font(.title)
                         
                     }
                 }
-            }
-            .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("<リスト") {
                         //Realmに新しいメモを保存

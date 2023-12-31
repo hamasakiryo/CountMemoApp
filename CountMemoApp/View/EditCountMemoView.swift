@@ -12,7 +12,7 @@ struct EditCountMemoView: View {
     @Environment (\.dismiss) private var dismiss
     @ObservedRealmObject var memo: CountMemo
     @State private var showCountSettingView = false
-    var textCounter = TextCounter()
+    private let textCounter = TextCounter()
     
     var body: some View {
         NavigationStack {
@@ -42,11 +42,13 @@ struct EditCountMemoView: View {
                     .padding(.horizontal, 10.0)
             }
             .sheet(isPresented: $showCountSettingView) {
-                CountSettingView(includeSpace: $memo.includeSpace,
-                                 includeNewLine: $memo.includeNewLine,
-                                 removeEnclosedText: $memo.removeEnclosedText,
-                                 switchCountDown: $memo.switchCountdown,
-                                 charcterLimit: $memo.characterLimit)
+                CountSettingView(
+                    includeSpace: $memo.includeSpace,
+                    includeNewLine: $memo.includeNewLine,
+                    removeEnclosedText: $memo.removeEnclosedText,
+                    switchCountDown: $memo.switchCountdown,
+                    charcterLimit: $memo.characterLimit
+                )
                 .presentationDetents([.medium])
             }
             .navigationBarTitleDisplayMode(.inline)

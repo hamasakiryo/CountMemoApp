@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/hamasakiryo/Desktop/CountMemoApp/LimitMemoApp.xcodeproj">
    </FileRef>
 </Workspace>

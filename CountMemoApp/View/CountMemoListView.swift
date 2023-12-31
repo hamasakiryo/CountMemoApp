@@ -9,7 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct CountMemoListView: View {
-    @ObservedResults(CountMemo.self, configuration: Realm.Configuration(schemaVersion:1),sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)) var memos
+    @ObservedResults(CountMemo.self,
+                     configuration: Realm.Configuration(schemaVersion:2),
+                     sortDescriptor: SortDescriptor(keyPath: "date", ascending: false)
+    )var memos
     
     var body: some View {
         NavigationStack {
@@ -26,7 +29,7 @@ struct CountMemoListView: View {
             }
             .onAppear{
                 //データベースから空のメモを取得して削除する
-                let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 1))
+                let realm = try! Realm(configuration: Realm.Configuration(schemaVersion: 2))
                 let emptyMemo = realm.objects(CountMemo.self).where({$0.title == "" && $0.content == ""})
                 try! realm.write {
                     realm.delete(emptyMemo)
@@ -36,7 +39,7 @@ struct CountMemoListView: View {
             .toolbar{
                 ToolbarItem(placement: .bottomBar) {
                     NavigationLink(destination: AddNewCountMemoView().environment(\.realm, try! .init(configuration: Realm.Configuration()))) {
-                            Image(systemName: "square.and.pencil")
+                        Image(systemName: "square.and.pencil")
                     }
                     .foregroundStyle(.primary)
                     .font(.title)

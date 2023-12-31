@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE551DEA2B18C94F008E47D1 /* AddNewCountMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE551DE92B18C94F008E47D1 /* AddNewCountMemoView.swift */; };
+		FE551DEC2B18C96A008E47D1 /* EditCountMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE551DEB2B18C96A008E47D1 /* EditCountMemoView.swift */; };
+		FE551DEE2B18C97F008E47D1 /* CountMemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE551DED2B18C97F008E47D1 /* CountMemoListView.swift */; };
+		FE551DF02B18C989008E47D1 /* CountMemoListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE551DEF2B18C988008E47D1 /* CountMemoListRow.swift */; };
+		FE551DF22B18C9F4008E47D1 /* CountMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE551DF12B18C9F4008E47D1 /* CountMemo.swift */; };
+		FE551DF42B18CA06008E47D1 /* CountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE551DF32B18CA06008E47D1 /* CountSettingView.swift */; };
+		FE551E842B24B36C008E47D1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FE551E832B24B36C008E47D1 /* Realm */; };
+		FE551E862B24B36C008E47D1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FE551E852B24B36C008E47D1 /* RealmSwift */; };
+		FE5E7E6D2B37562900949981 /* TextCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5E7E6C2B37562900949981 /* TextCounter.swift */; };
 		FEB910442B0B44AE004429E3 /* CountMemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910432B0B44AE004429E3 /* CountMemoAppApp.swift */; };
-		FEB910462B0B44AE004429E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910452B0B44AE004429E3 /* ContentView.swift */; };
 		FEB910482B0B44AF004429E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB910472B0B44AF004429E3 /* Assets.xcassets */; };
 		FEB9104B2B0B44AF004429E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB9104A2B0B44AF004429E3 /* Preview Assets.xcassets */; };
 		FEB910552B0B44AF004429E3 /* CountMemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB910542B0B44AF004429E3 /* CountMemoAppTests.swift */; };
@@ -34,9 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE551DE92B18C94F008E47D1 /* AddNewCountMemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewCountMemoView.swift; sourceTree = "<group>"; };
+		FE551DEB2B18C96A008E47D1 /* EditCountMemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCountMemoView.swift; sourceTree = "<group>"; };
+		FE551DED2B18C97F008E47D1 /* CountMemoListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountMemoListView.swift; sourceTree = "<group>"; };
+		FE551DEF2B18C988008E47D1 /* CountMemoListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountMemoListRow.swift; sourceTree = "<group>"; };
+		FE551DF12B18C9F4008E47D1 /* CountMemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountMemo.swift; sourceTree = "<group>"; };
+		FE551DF32B18CA06008E47D1 /* CountSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountSettingView.swift; sourceTree = "<group>"; };
+		FE5E7E6C2B37562900949981 /* TextCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCounter.swift; sourceTree = "<group>"; };
 		FEB910402B0B44AE004429E3 /* CountMemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountMemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB910432B0B44AE004429E3 /* CountMemoAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountMemoAppApp.swift; sourceTree = "<group>"; };
-		FEB910452B0B44AE004429E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FEB910472B0B44AF004429E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEB9104A2B0B44AF004429E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FEB910502B0B44AF004429E3 /* CountMemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountMemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE551E862B24B36C008E47D1 /* RealmSwift in Frameworks */,
+				FE551E842B24B36C008E47D1 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +87,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE5E7EEB2B3E8D9D00949981 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE551DED2B18C97F008E47D1 /* CountMemoListView.swift */,
+				FE551DEF2B18C988008E47D1 /* CountMemoListRow.swift */,
+				FE551DE92B18C94F008E47D1 /* AddNewCountMemoView.swift */,
+				FE551DEB2B18C96A008E47D1 /* EditCountMemoView.swift */,
+				FE551DF32B18CA06008E47D1 /* CountSettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE5E7EEC2B3E8E0A00949981 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE551DF12B18C9F4008E47D1 /* CountMemo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FEB910372B0B44AE004429E3 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				FEB910432B0B44AE004429E3 /* CountMemoAppApp.swift */,
-				FEB910452B0B44AE004429E3 /* ContentView.swift */,
+				FE5E7EEC2B3E8E0A00949981 /* Model */,
+				FE5E7EEB2B3E8D9D00949981 /* View */,
+				FE5E7E6C2B37562900949981 /* TextCounter.swift */,
 				FEB910472B0B44AF004429E3 /* Assets.xcassets */,
 				FEB910492B0B44AF004429E3 /* Preview Content */,
 			);
@@ -143,6 +181,10 @@
 			dependencies = (
 			);
 			name = CountMemoApp;
+			packageProductDependencies = (
+				FE551E832B24B36C008E47D1 /* Realm */,
+				FE551E852B24B36C008E47D1 /* RealmSwift */,
+			);
 			productName = CountMemoApp;
 			productReference = FEB910402B0B44AE004429E3 /* CountMemoApp.app */;
 			productType = "com.apple.product-type.application";
@@ -206,7 +248,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FEB9103B2B0B44AE004429E3 /* Build configuration list for PBXProject "CountMemoApp" */;
+			buildConfigurationList = FEB9103B2B0B44AE004429E3 /* Build configuration list for PBXProject "LimitMemoApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -215,6 +257,9 @@
 				Base,
 			);
 			mainGroup = FEB910372B0B44AE004429E3;
+			packageReferences = (
+				FE551E822B24B36C008E47D1 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = FEB910412B0B44AE004429E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +302,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEB910462B0B44AE004429E3 /* ContentView.swift in Sources */,
+				FE551DF22B18C9F4008E47D1 /* CountMemo.swift in Sources */,
+				FE5E7E6D2B37562900949981 /* TextCounter.swift in Sources */,
+				FE551DEA2B18C94F008E47D1 /* AddNewCountMemoView.swift in Sources */,
+				FE551DF42B18CA06008E47D1 /* CountSettingView.swift in Sources */,
+				FE551DEE2B18C97F008E47D1 /* CountMemoListView.swift in Sources */,
+				FE551DEC2B18C96A008E47D1 /* EditCountMemoView.swift in Sources */,
 				FEB910442B0B44AE004429E3 /* CountMemoAppApp.swift in Sources */,
+				FE551DF02B18C989008E47D1 /* CountMemoListRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +473,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CountMemoApp/Preview Content\"";
+				DEVELOPMENT_TEAM = P9BCU98YP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -450,6 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CountMemoApp/Preview Content\"";
+				DEVELOPMENT_TEAM = P9BCU98YP6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -545,7 +598,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FEB9103B2B0B44AE004429E3 /* Build configuration list for PBXProject "CountMemoApp" */ = {
+		FEB9103B2B0B44AE004429E3 /* Build configuration list for PBXProject "LimitMemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEB910622B0B44AF004429E3 /* Debug */,
@@ -582,6 +635,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FE551E822B24B36C008E47D1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.44.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FE551E832B24B36C008E47D1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE551E822B24B36C008E47D1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FE551E852B24B36C008E47D1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FE551E822B24B36C008E47D1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FEB910382B0B44AE004429E3 /* Project object */;
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CountSettingView: View {
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     @Binding var includeSpace: Bool
     @Binding var includeNewLine: Bool
     @Binding var removeEnclosedText: Bool
@@ -40,7 +40,7 @@ struct CountSettingView: View {
                         dismiss()
                     } label: {
                         Text("OK")
-                            .foregroundStyle(Color.primary)
+                            .foregroundStyle(.primary)
                     }
                 }
             }

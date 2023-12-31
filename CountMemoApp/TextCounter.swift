@@ -9,7 +9,14 @@ import SwiftUI
 
 struct TextCounter {
     ///条件に応じてtextを修正し、その文字数を返すメソッド(EditCountMemoView,AddNewCountMemoViewで使用)
-    func modifiedTextCharacterCount(text: String, characterLimit: String, includeSpace: Bool, includeNewLine: Bool, removeEnclosedText: Bool, switchCountdown: Bool) -> Int {
+    func modifiedTextCharacterCount(
+        text: String,
+        characterLimit: String,
+        includeSpace: Bool,
+        includeNewLine: Bool,
+        removeEnclosedText: Bool,
+        switchCountdown: Bool
+    ) -> Int {
         var modifiedText = text
         
         //includeSpaceがfalseの場合、テキストから空白を除去(デフォルトで文字数のカウントには空白が含まれない)
