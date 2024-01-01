@@ -60,7 +60,7 @@ struct AddNewCountMemoView: View {
                         showCountSettingView = true
                     } label: {
                         Image(systemName: "gearshape.fill")
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(Color.primary)
                             .font(.title)
                         
                     }
